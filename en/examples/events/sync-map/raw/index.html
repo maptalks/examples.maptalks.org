@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="index.css">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
+  <title>Events - Sync map by events</title>
+  <body>
+    <div id="map0"></div>
+    <div id="map1"></div>
+
+    <script>
+      var map0 = new maptalks.Map('map0', {
+        center: [-0.113049,51.498568],
+        zoom: 14,
+        baseLayer: new maptalks.TileLayer('base', {
+          urlTemplate: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+          subdomains: ["a","b","c"]
+        }),
+        attribution : {
+          position : 'top-right',
+          content : '<div class="attr">move me</div>'
+        }
+      });
+
+
+      var map1 = new maptalks.Map('map1', {
+        center: [-0.113049,51.498568],
+        zoom: 14,
+        draggable : false,
+        scrollWheelZoom : false,
+        dblClickZoom : false,
+        baseLayer: new maptalks.TileLayer('base1', {
+          urlTemplate: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+          subdomains: ["a","b","c"]
+        })
+      });
+
+      map0.on('moving', function (param) {
+        map1.setCenter(param.target.getCenter());
+      });
+
+      map0.on('zoomend', function (param) {
+        map1.setCenterAndZoom(param.target.getCenter(), param.target.getZoom());
+      });
+
+    </script>
+  </body>
