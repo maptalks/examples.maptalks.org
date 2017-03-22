@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Layers - TileLayer renderers</title>
+  <title>Common Layers - TileLayer renderers</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -25,8 +25,9 @@
               <iframe sandbox="allow-popups allow-scripts allow-forms allow-same-origin" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="raw/index.html" ></iframe>
       </div>
       <div class="button">
-          <a href="raw/index.html" target="_blank"><img src="../../../../images/icon1.png"> Open</a>
-          <a href="javascript:edit();"><img src="../../../../images/icon2.png"> Edit</a>
+        <a href="https://github.com/maptalks/maptalks-demo/tree/master/src/examples/layer\tile-renderer" target="_blank"><img src="../../../../images/icon2.png"> Source</a>
+        <a href="raw/index.html" target="_blank"><img src="../../../../images/icon1.png"> Open</a>
+        <a href="javascript:edit();"><img src="../../../../images/icon2.png"> Edit</a>
       </div>
 
       <div id="code">
@@ -38,7 +39,7 @@
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
   &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
-  &lt;title&gt;Layers - TileLayer renderers&lt;/title&gt;
+  &lt;title&gt;Common Layers - TileLayer renderers&lt;/title&gt;
   &lt;body&gt;
     
     &lt;div id&#x3D;&quot;map-on-dom&quot;&gt;&lt;/div&gt;
@@ -52,8 +53,8 @@
         layers : [
           new maptalks.TileLayer(&#x27;base&#x27;, {
             renderer: &#x27;dom&#x27;,
-            urlTemplate: &#x27;http://{s}.tile.osm.org/{z}/{x}/{y}.png&#x27;,
-            subdomains: [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+            urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png&#x27;,
+            subdomains: [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;]
           })
         ],
         attribution : {
@@ -68,8 +69,8 @@
         layers : [
           new maptalks.TileLayer(&#x27;base&#x27;, {
             renderer: &#x27;canvas&#x27;,
-            urlTemplate: &#x27;http://{s}.tile.osm.org/{z}/{x}/{y}.png&#x27;,
-            subdomains: [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+            urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png&#x27;,
+            subdomains: [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;]
           })
         ],
         attribution : {
@@ -140,8 +141,8 @@ body {
         layers : [
           new maptalks.TileLayer('base', {
             renderer: 'dom',
-            urlTemplate: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-            subdomains: ["a","b","c"]
+            urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+            subdomains: ['a','b','c','d','e']
           })
         ],
         attribution : {
@@ -156,8 +157,8 @@ body {
         layers : [
           new maptalks.TileLayer('base', {
             renderer: 'canvas',
-            urlTemplate: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-            subdomains: ["a","b","c"]
+            urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+            subdomains: ['a','b','c','d','e']
           })
         ],
         attribution : {
@@ -197,7 +198,7 @@ body {
 }
 </textarea>
         <input type="text" name="title" value="TileLayer renderers">
-        <textarea name="description">Layers - TileLayer renderers</textarea>
+        <textarea name="description">Common Layers - TileLayer renderers</textarea>
         <textarea name="resources">
         </textarea>
         <input type="text" name="wrap" value="l">
