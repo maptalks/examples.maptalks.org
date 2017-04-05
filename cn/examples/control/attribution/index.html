@@ -37,14 +37,16 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;地图控件 - Attribution控件&lt;/title&gt;
   &lt;body&gt;
     
     &lt;div id&#x3D;&quot;map&quot;&gt;&lt;/div&gt;
     &lt;script&gt;
-
+      
       var map &#x3D; new maptalks.Map(&#x27;map&#x27;, {
         center: [-0.113049,51.498568],
         zoom: 14,
@@ -52,11 +54,11 @@
           &#x27;position&#x27;  : &#x27;top-right&#x27;
         },
         baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
-          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png&#x27;,
+          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png&#x27;,
           subdomains: [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;]
         })
       });
-
+      
       var attribution &#x3D; new maptalks.control.Attribution({
         &#x27;position&#x27;  : { &#x27;bottom&#x27;: &#x27;20&#x27;, &#x27;right&#x27;: &#x27;75&#x27; },
         &#x27;content&#x27;   : &#x27;Powered by &lt;a href&#x3D;&quot;http://www.maptalks.org&quot; target&#x3D;&quot;_blank&quot; style&#x3D;&quot;text-decoration:none;cursor: pointer;color: #6490C4; &quot;&gt;maptalks&lt;/a&gt;&#x27;
@@ -98,7 +100,7 @@ body {
               
     <div id="map"></div>
         </textarea>
-        <textarea name="js">
+        <textarea name="js">      
       var map = new maptalks.Map('map', {
         center: [-0.113049,51.498568],
         zoom: 14,
@@ -106,11 +108,11 @@ body {
           'position'  : 'top-right'
         },
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var attribution = new maptalks.control.Attribution({
         'position'  : { 'bottom': '20', 'right': '75' },
         'content'   : 'Powered by <a href="http://www.maptalks.org" target="_blank" style="text-decoration:none;cursor: pointer;color: #6490C4; ">maptalks</a>'

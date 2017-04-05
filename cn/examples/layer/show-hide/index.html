@@ -37,24 +37,26 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;常用图层 - 隐藏显示图层&lt;/title&gt;
   &lt;body&gt;
     
     &lt;div id&#x3D;&quot;map&quot;&gt;&lt;/div&gt;
 
     &lt;script&gt;
-
+      
       var map &#x3D; new maptalks.Map(&#x27;map&#x27;, {
         center: [-0.113049,51.498568],
         zoom: 14,
         baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
-          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png&#x27;,
+          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png&#x27;,
           subdomains: [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;]
         })
       });
-
+      
       var marker &#x3D; new maptalks.Marker(
         map.getCenter(),
         {
@@ -70,7 +72,7 @@
       );
       var layer &#x3D; new maptalks.VectorLayer(&#x27;vector&#x27;, [marker])
           .addTo(map);
-
+      
       var toolbar &#x3D; new maptalks.control.Toolbar({
         items: [
           {
@@ -125,16 +127,16 @@ body {
     <div id="map"></div>
 
         </textarea>
-        <textarea name="js">
+        <textarea name="js">      
       var map = new maptalks.Map('map', {
         center: [-0.113049,51.498568],
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var marker = new maptalks.Marker(
         map.getCenter(),
         {
@@ -150,7 +152,7 @@ body {
       );
       var layer = new maptalks.VectorLayer('vector', [marker])
           .addTo(map);
-
+      
       var toolbar = new maptalks.control.Toolbar({
         items: [
           {

@@ -1,31 +1,33 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
   <title>图形 - 通过ID获取图形</title>
   <body>
     
     <div id="map"></div>
 
     <script>
-
+      
       var map = new maptalks.Map('map', {
         center: [121.4854, 31.2285],
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var layer = new maptalks.VectorLayer('vector')
           .addTo(map);
-
+      
       function getById(id) {
         layer.getGeometryById(id).updateSymbol([{ 'polygonFill': '#f00' }]);
       }
-
+      
       //<<<<<<<< prepare data
       for (var i = 0; i < 3; i++) {
         new maptalks.Polygon(

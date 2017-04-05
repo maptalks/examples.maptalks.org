@@ -37,8 +37,10 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;动画 - Geometry动画&lt;/title&gt;
   &lt;body&gt;
     
@@ -49,17 +51,17 @@
         center: center,
         zoom: 14,
         baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
-          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png&#x27;,
+          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png&#x27;,
           subdomains: [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;]
         }),
         layers : [
           new maptalks.VectorLayer(&#x27;v&#x27;)
         ]
       });
-
+      
       var bars &#x3D; getBars();
       map.getLayer(&#x27;v&#x27;).addGeometry(bars);
-
+      
       function animate() {
         bars[0].animate({
           &#x27;symbol&#x27;: {
@@ -68,7 +70,7 @@
         }, {
           &#x27;duration&#x27;: 1000
         });
-
+      
         bars[1].animate({
           &#x27;symbol&#x27;: {
             &#x27;markerHeight&#x27;: 197
@@ -76,7 +78,7 @@
         }, {
           &#x27;duration&#x27;: 1000
         });
-
+      
         bars[2].animate({
           &#x27;symbol&#x27;: {
             &#x27;markerHeight&#x27;: 154
@@ -85,7 +87,7 @@
           &#x27;duration&#x27;: 1000
         });
       }
-
+      
       function reset() {
         bars[0].updateSymbol({
           &#x27;markerHeight&#x27; : 33
@@ -97,7 +99,7 @@
           &#x27;markerHeight&#x27; : 79
         });
       }
-
+      
       function getBars() {
         var bar1 &#x3D; new maptalks.Marker(
           center.add(-0.012,-0.002),
@@ -112,7 +114,7 @@
             }
           }
         );
-
+      
         var bar2 &#x3D; new maptalks.Marker(
           center.add(-0.004,-0.002),
           {
@@ -126,7 +128,7 @@
             }
           }
         );
-
+      
         var bar3 &#x3D; new maptalks.Marker(
           center.add(0.004,-0.002),
           {
@@ -140,10 +142,10 @@
             }
           }
         );
-
+      
         return [bar1, bar2, bar3];
       }
-
+      
       var actionBar &#x3D; new maptalks.control.Toolbar({
         items: [
           {
@@ -198,17 +200,17 @@ body {
         center: center,
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         }),
         layers : [
           new maptalks.VectorLayer('v')
         ]
       });
-
+      
       var bars = getBars();
       map.getLayer('v').addGeometry(bars);
-
+      
       function animate() {
         bars[0].animate({
           'symbol': {
@@ -217,7 +219,7 @@ body {
         }, {
           'duration': 1000
         });
-
+      
         bars[1].animate({
           'symbol': {
             'markerHeight': 197
@@ -225,7 +227,7 @@ body {
         }, {
           'duration': 1000
         });
-
+      
         bars[2].animate({
           'symbol': {
             'markerHeight': 154
@@ -234,7 +236,7 @@ body {
           'duration': 1000
         });
       }
-
+      
       function reset() {
         bars[0].updateSymbol({
           'markerHeight' : 33
@@ -246,7 +248,7 @@ body {
           'markerHeight' : 79
         });
       }
-
+      
       function getBars() {
         var bar1 = new maptalks.Marker(
           center.add(-0.012,-0.002),
@@ -261,7 +263,7 @@ body {
             }
           }
         );
-
+      
         var bar2 = new maptalks.Marker(
           center.add(-0.004,-0.002),
           {
@@ -275,7 +277,7 @@ body {
             }
           }
         );
-
+      
         var bar3 = new maptalks.Marker(
           center.add(0.004,-0.002),
           {
@@ -289,10 +291,10 @@ body {
             }
           }
         );
-
+      
         return [bar1, bar2, bar3];
       }
-
+      
       var actionBar = new maptalks.control.Toolbar({
         items: [
           {

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
   <title> - </title>
   <body>
     
@@ -14,11 +16,11 @@
         center: center,
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var layer = new maptalks.VectorLayer('vector').addTo(map);
       var bar1 = new maptalks.Marker(
         center.add(-0.012,-0.002),
@@ -33,7 +35,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var bar2 = new maptalks.Marker(
         center.add(-0.004,-0.002),
         {
@@ -47,7 +49,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var bar3 = new maptalks.Marker(
         center.add(0.004,-0.002),
         {
@@ -61,10 +63,10 @@
           }
         }
       ).addTo(layer);
-
+      
       function animation() {
         var duration = 1000;
-
+      
         bar1.animate({
           'symbol': {
             'markerHeight': 82
@@ -72,7 +74,7 @@
         }, {
           'duration': duration
         });
-
+      
         bar2.animate({
           'symbol': {
             'markerHeight': 197
@@ -80,7 +82,7 @@
         }, {
           'duration': duration
         });
-
+      
         bar3.animate({
           'symbol': {
             'markerHeight': 154
@@ -89,7 +91,7 @@
           'duration': duration
         });
       }
-
+      
       function reset() {
         bar1.updateSymbol({
           'markerHeight' : 33
@@ -101,7 +103,7 @@
           'markerHeight' : 79
         });
       }
-
+      
       var actionBar = new maptalks.control.Toolbar({
         items: [
           {

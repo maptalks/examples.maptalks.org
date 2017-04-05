@@ -37,8 +37,10 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;JSON序列化 - 用JSON载入地图&lt;/title&gt;
   &lt;body&gt;
     &lt;div id&#x3D;&quot;map&quot;&gt;&lt;/div&gt;
@@ -77,9 +79,9 @@
           }
         ]
       };
-
+      
       maptalks.Map.fromJSON(&#x27;map&#x27;, mapJSON);
-
+      
       document.getElementById(&#x27;json&#x27;).innerHTML &#x3D; JSON.stringify(mapJSON);
 
     &lt;/script&gt;
@@ -164,9 +166,9 @@ body {
           }
         ]
       };
-
+      
       maptalks.Map.fromJSON('map', mapJSON);
-
+      
       document.getElementById('json').innerHTML = JSON.stringify(mapJSON);
 </textarea>
         <textarea name="css">

@@ -37,54 +37,47 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;UI组件 - 自定义信息框&lt;/title&gt;
   &lt;body&gt;
     
     &lt;div id&#x3D;&quot;map&quot;&gt;&lt;/div&gt;
     &lt;script&gt;
-
       var map &#x3D; new maptalks.Map(&#x27;map&#x27;, {
         center: [-0.113049,51.49856],
         zoom: 14,
         baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
-          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png&#x27;,
+          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png&#x27;,
           subdomains: [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;]
         })
       });
 
-      var extent &#x3D; map.getExtent();
-      var w &#x3D; extent.getWidth(),
-        h &#x3D; extent.getHeight();
+      var coordinate &#x3D; map.getCenter().toFixed(3);
 
-      for (var i &#x3D; 0; i &lt; 5; i++) {
-        setTimeout(addInfo, 500 * i);
-      }
+      var options &#x3D; {
+        &#x27;single&#x27; : false,
+        &#x27;width&#x27;  : 183,
+        &#x27;height&#x27; : 105,
+        &#x27;custom&#x27; : true,
+        &#x27;dx&#x27; : -3,
+        &#x27;dy&#x27; : -12,
+        &#x27;content&#x27;   : &#x27;&lt;div class&#x3D;&quot;content&quot;&gt;&#x27; +
+          &#x27;&lt;div class&#x3D;&quot;pop_title&quot;&gt;Custom InfoWindow&lt;/div&gt;&#x27; +
+          &#x27;&lt;div class&#x3D;&quot;pop_time&quot;&gt;&#x27; + new Date().toLocaleTimeString() + &#x27;&lt;/div&gt;&lt;br&gt;&#x27; +
+          &#x27;&lt;div class&#x3D;&quot;pop_dept&quot;&gt;&#x27; + coordinate.x + &#x27;&lt;/div&gt;&#x27; +
+          &#x27;&lt;div class&#x3D;&quot;pop_dept&quot;&gt;&#x27; + coordinate.y + &#x27;&lt;/div&gt;&#x27; +
+          &#x27;&lt;div class&#x3D;&quot;arrow&quot;&gt;&lt;/div&gt;&#x27; +
+          &#x27;&lt;/div&gt;&#x27;
+      };
+      var infoWindow &#x3D; new maptalks.ui.InfoWindow(options);
+      infoWindow.addTo(map).show(coordinate);
 
-      function addInfo() {
-        var coordinate &#x3D; extent.getMin()
-          .add(Math.random() * w, Math.random() * h)
-          .toFixed(3);
-
-        var options &#x3D; {
-          &#x27;single&#x27; : false,
-          &#x27;width&#x27;  : 183,
-          &#x27;height&#x27; : 105,
-          &#x27;custom&#x27; : true,
-          &#x27;dx&#x27; : -3,
-          &#x27;dy&#x27; : -20,
-          &#x27;content&#x27;   : &#x27;&lt;div class&#x3D;&quot;content&quot;&gt;&#x27; +
-            &#x27;&lt;div class&#x3D;&quot;pop_title&quot;&gt;Custom InfoWindow&lt;/div&gt;&#x27; +
-            &#x27;&lt;div class&#x3D;&quot;pop_time&quot;&gt;&#x27; + new Date().toLocaleTimeString() + &#x27;&lt;/div&gt;&lt;br&gt;&#x27; +
-            &#x27;&lt;div class&#x3D;&quot;pop_dept&quot;&gt;&#x27; + coordinate.x + &#x27;&lt;/div&gt;&#x27; +
-            &#x27;&lt;div class&#x3D;&quot;pop_dept&quot;&gt;&#x27; + coordinate.y + &#x27;&lt;/div&gt;&#x27; +
-            &#x27;&lt;div class&#x3D;&quot;arrow&quot;&gt;&lt;/div&gt;&#x27; +
-            &#x27;&lt;/div&gt;&#x27;
-        };
-        var infoWindow &#x3D; new maptalks.ui.InfoWindow(options);
-        infoWindow.addTo(map).show(coordinate);
-      }
+      map.on(&#x27;click&#x27;, function (e) {
+        infoWindow.show(e.coordinate);
+      });
 
     &lt;/script&gt;
   &lt;/body&gt;
@@ -173,47 +166,38 @@ body {
               
     <div id="map"></div>
         </textarea>
-        <textarea name="js">
-      var map = new maptalks.Map('map', {
+        <textarea name="js">      var map = new maptalks.Map('map', {
         center: [-0.113049,51.49856],
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
 
-      var extent = map.getExtent();
-      var w = extent.getWidth(),
-        h = extent.getHeight();
+      var coordinate = map.getCenter().toFixed(3);
 
-      for (var i = 0; i < 5; i++) {
-        setTimeout(addInfo, 500 * i);
-      }
+      var options = {
+        'single' : false,
+        'width'  : 183,
+        'height' : 105,
+        'custom' : true,
+        'dx' : -3,
+        'dy' : -12,
+        'content'   : '<div class="content">' +
+          '<div class="pop_title">Custom InfoWindow</div>' +
+          '<div class="pop_time">' + new Date().toLocaleTimeString() + '</div><br>' +
+          '<div class="pop_dept">' + coordinate.x + '</div>' +
+          '<div class="pop_dept">' + coordinate.y + '</div>' +
+          '<div class="arrow"></div>' +
+          '</div>'
+      };
+      var infoWindow = new maptalks.ui.InfoWindow(options);
+      infoWindow.addTo(map).show(coordinate);
 
-      function addInfo() {
-        var coordinate = extent.getMin()
-          .add(Math.random() * w, Math.random() * h)
-          .toFixed(3);
-
-        var options = {
-          'single' : false,
-          'width'  : 183,
-          'height' : 105,
-          'custom' : true,
-          'dx' : -3,
-          'dy' : -20,
-          'content'   : '<div class="content">' +
-            '<div class="pop_title">Custom InfoWindow</div>' +
-            '<div class="pop_time">' + new Date().toLocaleTimeString() + '</div><br>' +
-            '<div class="pop_dept">' + coordinate.x + '</div>' +
-            '<div class="pop_dept">' + coordinate.y + '</div>' +
-            '<div class="arrow"></div>' +
-            '</div>'
-        };
-        var infoWindow = new maptalks.ui.InfoWindow(options);
-        infoWindow.addTo(map).show(coordinate);
-      }
+      map.on('click', function (e) {
+        infoWindow.show(e.coordinate);
+      });
 </textarea>
         <textarea name="css">
 html,

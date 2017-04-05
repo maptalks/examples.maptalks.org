@@ -37,23 +37,25 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;地图 - 自定义地图投影&lt;/title&gt;
   &lt;body&gt;
-
+    
     &lt;div id&#x3D;&quot;map&quot;&gt;loading data...&lt;/div&gt;
     &lt;script src&#x3D;&quot;https://d3js.org/d3.v4.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src&#x3D;&quot;https://d3js.org/topojson.v2.min.js&quot;&gt;&lt;/script&gt;
 
     &lt;script&gt;
-
+      
       //Versor Dragging projection from D3
       //https://bl.ocks.org/mbostock/7ea1dde508cec6d2d95306f92642bc42
       var projection &#x3D;  d3.geoOrthographic()
                           .scale(148)
                           .precision(.1);
-
+      
       //convert to a maptalks projection object
       var proj &#x3D; {
         project : function (c) {
@@ -68,7 +70,7 @@
           return new maptalks.Coordinate(c);
         }
       };
-
+      
       var min &#x3D; proj.project(new maptalks.Coordinate(-180, -90)),
         max &#x3D; proj.project(new maptalks.Coordinate(180, 90)),
         fullExtent &#x3D; {
@@ -77,7 +79,7 @@
           &#x27;right&#x27; : max.x,
           &#x27;bottom&#x27; : min.y
         };
-
+      
       d3.json(&#x27;world-50m.json&#x27;, function (error, world) {
         if (error) throw error;
         //initialize map with a customized projection
@@ -146,19 +148,19 @@ body {
         <textarea name="html">
           <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
           <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
-          
+              
     <div id="map">loading data...</div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
 
         </textarea>
-        <textarea name="js">
+        <textarea name="js">      
       //Versor Dragging projection from D3
       //https://bl.ocks.org/mbostock/7ea1dde508cec6d2d95306f92642bc42
       var projection =  d3.geoOrthographic()
                           .scale(148)
                           .precision(.1);
-
+      
       //convert to a maptalks projection object
       var proj = {
         project : function (c) {
@@ -173,7 +175,7 @@ body {
           return new maptalks.Coordinate(c);
         }
       };
-
+      
       var min = proj.project(new maptalks.Coordinate(-180, -90)),
         max = proj.project(new maptalks.Coordinate(180, 90)),
         fullExtent = {
@@ -182,7 +184,7 @@ body {
           'right' : max.x,
           'bottom' : min.y
         };
-
+      
       d3.json('world-50m.json', function (error, world) {
         if (error) throw error;
         //initialize map with a customized projection

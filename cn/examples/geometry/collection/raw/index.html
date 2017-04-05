@@ -1,8 +1,10 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
   <title>图形 - 集合类型图形</title>
   <body>
     
@@ -14,11 +16,11 @@
         center: c,
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var marker = new maptalks.Marker(c.add(-0.018,0.007));
       var line = new maptalks.LineString([
         c.add(-0.018,0.005),
@@ -43,9 +45,9 @@
           'polygonOpacity' : 0.6
         }
       });
-
+      
       var collection = new maptalks.GeometryCollection([marker, line, polygon]);
-
+      
       var layer = new maptalks.VectorLayer('vector', collection)
           .addTo(map);
 

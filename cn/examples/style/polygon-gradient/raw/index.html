@@ -1,9 +1,11 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
-  <title>样式渲染 - 面的渐变填充</title>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
+  <title>图形样式 - 面的渐变填充</title>
   <body>
     
     <div id="map"></div>
@@ -13,13 +15,13 @@
         center: c.sub(0.006, 0.002),
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          'urlTemplate' : 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          'urlTemplate' : 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           'subdomains'  : ['a','b','c','d','e']
         })
       });
-
+      
       var layer = new maptalks.VectorLayer('vector').addTo(map);
-
+      
       var rect1 = new maptalks.Rectangle(
         c.sub(0.03, 0), 600, 600,
         {
@@ -37,7 +39,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var rect2 = new maptalks.Rectangle(
         c.sub(0.02, 0), 600, 600,
         {
@@ -56,7 +58,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var rect3 = new maptalks.Rectangle(
         c, 600, 600,
         {
@@ -74,7 +76,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var rect4 = new maptalks.Rectangle(
         c.add(0.01, 0), 600, 600,
         {

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
-  <title>样式渲染 - 矢量标注</title>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
+  <title>图形样式 - 矢量标注</title>
   <body>
     
     <div id="map"></div>
@@ -13,13 +15,13 @@
         center: c,
         zoom: 14,
         baseLayer: new maptalks.TileLayer('tile', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var layer = new maptalks.VectorLayer('v').addTo(map);
-
+      
       var marker1 = new maptalks.Marker(
         c.sub(0.020, 0),
         {
@@ -38,7 +40,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var marker2 = new maptalks.Marker(
         c.sub(0.015, 0),
         {
@@ -57,7 +59,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var marker3 = new maptalks.Marker(
         c.sub(0.010, 0),
         {
@@ -76,7 +78,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var marker4 = new maptalks.Marker(
         c.sub(0.005, 0),
         {
@@ -95,7 +97,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var marker5 = new maptalks.Marker(
         c,
         {
@@ -114,8 +116,8 @@
           }
         }
       ).addTo(layer);
-
-
+      
+      
       var marker6 = new maptalks.Marker(
         c.add(0.005, 0),
         {
@@ -134,7 +136,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var marker7 = new maptalks.Marker(
         c.add(0.010, 0),
         {
@@ -153,7 +155,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var marker8 = new maptalks.Marker(
         c.add(0.015, 0),
         {
@@ -172,7 +174,7 @@
           }
         }
       ).addTo(layer);
-
+      
       var marker9 = new maptalks.Marker(
         c.add(0.020, 0),
         {

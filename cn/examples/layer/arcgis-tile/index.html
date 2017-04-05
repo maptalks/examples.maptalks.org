@@ -37,8 +37,10 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;常用图层 - 载入ArcGIS瓦片服务&lt;/title&gt;
   &lt;body&gt;
     
@@ -46,14 +48,14 @@
 
     &lt;script&gt;
       var arcUrl &#x3D; &#x27;https://services.arcgisonline.com/arcgis/rest/services/ESRI_Imagery_World_2D/MapServer&#x27;;
-
+      
       maptalks.View.loadArcgis(arcUrl + &#x27;?f&#x3D;pjson&#x27;, function (err, conf) {
         if (err) {
           throw new Error(err);
         }
         var view &#x3D; conf.view;
         view.projection &#x3D; &#x27;EPSG:4326&#x27;;
-
+      
         var map &#x3D; new maptalks.Map(&#x27;map&#x27;, {
           center: [121, 0],
           zoom: 0,
@@ -69,7 +71,7 @@
           }
         });
       });
-
+      
 
     &lt;/script&gt;
   &lt;/body&gt;
@@ -109,14 +111,14 @@ body {
 
         </textarea>
         <textarea name="js">      var arcUrl = 'https://services.arcgisonline.com/arcgis/rest/services/ESRI_Imagery_World_2D/MapServer';
-
+      
       maptalks.View.loadArcgis(arcUrl + '?f=pjson', function (err, conf) {
         if (err) {
           throw new Error(err);
         }
         var view = conf.view;
         view.projection = 'EPSG:4326';
-
+      
         var map = new maptalks.Map('map', {
           center: [121, 0],
           zoom: 0,
@@ -132,7 +134,7 @@ body {
           }
         });
       });
-
+      
 </textarea>
         <textarea name="css">
 html,

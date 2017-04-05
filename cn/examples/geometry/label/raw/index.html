@@ -1,8 +1,10 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
   <title>图形 - 文字标签</title>
   <body>
     
@@ -14,11 +16,11 @@
         center: c,
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var label = new maptalks.Label('label without box',
         c.add(-0.013,-0.002),
         {
@@ -32,7 +34,7 @@
             'textHaloRadius' : 3
           }
         });
-
+      
       var labelBox = new maptalks.Label('label with box',
         c.add(0.004,-0.002),
         {
@@ -57,7 +59,7 @@
             'textWeight' : 'bold'
           }
         });
-
+      
       new maptalks.VectorLayer('vector', [label, labelBox]).addTo(map);
 
     </script>

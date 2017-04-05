@@ -1,8 +1,10 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
   <title>地图 - 预定义地图投影</title>
   <body>
     
@@ -15,21 +17,21 @@
     <div id="map-4326" class="left"></div>
     <div id="map-identity" class="right"></div>
     <script>
-
+      
       var center = [105.08052356963802, 36.04231948670001];
-
+      
       var map3857 = new maptalks.Map('map-3857', {
         center: center,
         zoom: 4,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         }),
         attribution : {
           content : '&copy; <a href="http://www.osm.org" target="_blank">OpenStreetMap</a> contributors'
         }
       });
-
+      
       var mapBD = new maptalks.Map('map-bd09', {
         center: center,
         zoom: 4,
@@ -46,7 +48,7 @@
           content : '&copy; <a target="_blank" href="http://map.baidu.com">Baidu</a>'
         }
       });
-
+      
       var map4326 = new maptalks.Map('map-4326', {
         center: center,
         zoom: 4,

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
   <title>地图控件 - Zoom控件</title>
   <body>
     
@@ -17,25 +19,25 @@
           'zoomLevel' : true
         },
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var noZoomLevel = new maptalks.control.Zoom({
         'position'  : 'top-right',
         'slider'    : true,
         'zoomLevel' : false
       });
       map.addControl(noZoomLevel);
-
+      
       var noSlider = new maptalks.control.Zoom({
         'position'  : 'bottom-right',
         'slider'    : false,
         'zoomLevel' : true
       });
       map.addControl(noSlider);
-
+      
       var customPosition = new maptalks.control.Zoom({
         'position'  : { 'bottom' : '20', 'left' : '20' },
         'slider'    : false,

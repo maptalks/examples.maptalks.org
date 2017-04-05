@@ -1,8 +1,10 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
   <title>UI组件 - ECharts UI Marker</title>
   <body>
     
@@ -14,19 +16,19 @@
         center: [-0.113049,51.49856],
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
       var chartDom = document.createElement('div');
       chartDom.style.cssText = 'width:650px; height:300px;';
       createChart(chartDom);
-
+      
       var echartsUI = new maptalks.ui.UIMarker([-0.113049,51.49856], {
         'draggable'     : true,
         'content'       : chartDom
       }).addTo(map).show();
-
+      
       // ECharts's chart creation
       function createChart(dom) {
         var myChart = echarts.init(dom);

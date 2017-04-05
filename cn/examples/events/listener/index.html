@@ -37,8 +37,10 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;事件 - 注册/注销事件监听&lt;/title&gt;
   &lt;body&gt;
     &lt;div id&#x3D;&quot;map&quot;&gt;&lt;/div&gt;
@@ -50,13 +52,13 @@
         center: [-0.113049,51.498568],
         zoom: 14,
         baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
-          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png&#x27;,
+          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png&#x27;,
           subdomains: [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;]
         })
       });
       //&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; prepare data
       var layer &#x3D; new maptalks.VectorLayer(&#x27;vector&#x27;).addTo(map);
-
+      
       var marker &#x3D; new maptalks.Marker(map.getCenter(), {
         symbol: [
           {
@@ -73,11 +75,11 @@
       })
       .addTo(layer);
       //&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
-
+      
       addListener();
-
+      
       var events &#x3D; [];
-
+      
       function onEvent(param) {
         events.push(param);
         var content &#x3D; &#x27;&#x27;;
@@ -89,15 +91,15 @@
         document.getElementById(&#x27;info&#x27;).innerHTML &#x3D; &#x27;&lt;div&gt;&#x27; + content + &#x27;&lt;/div&gt;&#x27;;
         return false;
       }
-
+      
       function addListener() {
         marker.on(&#x27;mousedown mouseup click dblclick contextmenu touchstart touchend&#x27;, onEvent);
       }
-
+      
       function removeListener() {
         marker.off(&#x27;mousedown mouseup click dblclick contextmenu touchstart touchend&#x27;, onEvent);
       }
-
+      
       var toolbar &#x3D; new maptalks.control.Toolbar({
         items: [
           {
@@ -167,13 +169,13 @@ body {
         center: [-0.113049,51.498568],
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
       //<<<<<<<< prepare data
       var layer = new maptalks.VectorLayer('vector').addTo(map);
-
+      
       var marker = new maptalks.Marker(map.getCenter(), {
         symbol: [
           {
@@ -190,11 +192,11 @@ body {
       })
       .addTo(layer);
       //>>>>>>>>
-
+      
       addListener();
-
+      
       var events = [];
-
+      
       function onEvent(param) {
         events.push(param);
         var content = '';
@@ -206,15 +208,15 @@ body {
         document.getElementById('info').innerHTML = '<div>' + content + '</div>';
         return false;
       }
-
+      
       function addListener() {
         marker.on('mousedown mouseup click dblclick contextmenu touchstart touchend', onEvent);
       }
-
+      
       function removeListener() {
         marker.off('mousedown mouseup click dblclick contextmenu touchstart touchend', onEvent);
       }
-
+      
       var toolbar = new maptalks.control.Toolbar({
         items: [
           {

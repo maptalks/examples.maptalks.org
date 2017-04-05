@@ -37,8 +37,10 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;插件开发示例 - 创建新的UI组件&lt;/title&gt;
   &lt;body&gt;
     
@@ -49,39 +51,39 @@
         //override parent&#x27;s animationOnHide option
         &#x27;animationOnHide&#x27; : false
       };
-
+      
       class MyUI extends maptalks.ui.UIComponent {
-
+      
         constructor(coordinate, options) {
           super(options);
           this._coordinate &#x3D; coordinate;
         }
-
+      
         buildOn(map) {
           var dom &#x3D; document.createElement(&#x27;div&#x27;);
           dom.className &#x3D; &#x27;my-ui&#x27;;
           dom.innerText &#x3D; this.options[&#x27;content&#x27;];
           return dom;
         }
-
+      
         getOffset() {
           var size &#x3D; this.getSize();
           //move anchor to center of UI
           return new maptalks.Point(-size.width / 2, -size.height / 2);
         }
-
+      
         getEvents() {
           return {
             &#x27;zoomend&#x27; : this._flash
           };
         }
-
+      
         onRemove() {
           if (this._flashTimeout) {
             clearTimeout(this._flashTimeout);
           }
         }
-
+      
         _flash() {
           //flash after zooming.
           this.hide();
@@ -90,19 +92,19 @@
           }, 200);
         }
       }
-
+      
       MyUI.mergeOptions(options);
-
-
+      
+      
       var map &#x3D; new maptalks.Map(&#x27;map&#x27;, {
         center: [-0.113049,51.49856],
         zoom: 14,
         baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
-          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png&#x27;,
+          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png&#x27;,
           subdomains: [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;]
         })
       });
-
+      
       var ui &#x3D; new MyUI(map.getCenter(), {
                   &#x27;content&#x27;   : &#x27;Hello, MyUI&#x27;
                 });
@@ -160,39 +162,39 @@ body {
         //override parent's animationOnHide option
         'animationOnHide' : false
       };
-
+      
       class MyUI extends maptalks.ui.UIComponent {
-
+      
         constructor(coordinate, options) {
           super(options);
           this._coordinate = coordinate;
         }
-
+      
         buildOn(map) {
           var dom = document.createElement('div');
           dom.className = 'my-ui';
           dom.innerText = this.options['content'];
           return dom;
         }
-
+      
         getOffset() {
           var size = this.getSize();
           //move anchor to center of UI
           return new maptalks.Point(-size.width / 2, -size.height / 2);
         }
-
+      
         getEvents() {
           return {
             'zoomend' : this._flash
           };
         }
-
+      
         onRemove() {
           if (this._flashTimeout) {
             clearTimeout(this._flashTimeout);
           }
         }
-
+      
         _flash() {
           //flash after zooming.
           this.hide();
@@ -201,19 +203,19 @@ body {
           }, 200);
         }
       }
-
+      
       MyUI.mergeOptions(options);
-
-
+      
+      
       var map = new maptalks.Map('map', {
         center: [-0.113049,51.49856],
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var ui = new MyUI(map.getCenter(), {
                   'content'   : 'Hello, MyUI'
                 });

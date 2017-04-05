@@ -37,8 +37,10 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
+  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;插件开发示例 - 创建地图工具&lt;/title&gt;
   &lt;body&gt;
     &lt;div id&#x3D;&quot;map&quot;&gt;&lt;/div&gt;
@@ -48,7 +50,7 @@
         center: [-0.113049,51.498568],
         zoom: 14,
         baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
-          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png&#x27;,
+          urlTemplate: &#x27;http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png&#x27;,
           subdomains: [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;,&#x27;e&#x27;]
         }),
         attribution : {
@@ -56,35 +58,35 @@
           content : &#x27;&lt;div class&#x3D;&quot;attr&quot;&gt;Click to add Marker, right click to clear&lt;/div&gt;&#x27;
         }
       });
-
+      
       class CustomTool extends maptalks.MapTool {
         onEnable() {
           this._markerLayer &#x3D; new maptalks.VectorLayer(&#x27;CustomTool_layer&#x27;)
             .addTo(this.getMap());
         }
-
+      
         onDisable() {
           if (this._markerLayer) {
             this._markerLayer.remove();
           }
         }
-
+      
         getEvents() {
           return {
             &#x27;click&#x27;: this._onClick,
             &#x27;contextmenu&#x27;: this._onRighClick
           };
         }
-
+      
         _onClick(param) {
           this._markerLayer.addGeometry(new maptalks.Marker(param.coordinate));
         }
-
+      
         _onRighClick(param) {
           this._markerLayer.clear();
         }
       }
-
+      
       var customTool &#x3D; new CustomTool().addTo(map);
 
     &lt;/script&gt;
@@ -133,7 +135,7 @@ body {
         center: [-0.113049,51.498568],
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         }),
         attribution : {
@@ -141,35 +143,35 @@ body {
           content : '<div class="attr">Click to add Marker, right click to clear</div>'
         }
       });
-
+      
       class CustomTool extends maptalks.MapTool {
         onEnable() {
           this._markerLayer = new maptalks.VectorLayer('CustomTool_layer')
             .addTo(this.getMap());
         }
-
+      
         onDisable() {
           if (this._markerLayer) {
             this._markerLayer.remove();
           }
         }
-
+      
         getEvents() {
           return {
             'click': this._onClick,
             'contextmenu': this._onRighClick
           };
         }
-
+      
         _onClick(param) {
           this._markerLayer.addGeometry(new maptalks.Marker(param.coordinate));
         }
-
+      
         _onRighClick(param) {
           this._markerLayer.clear();
         }
       }
-
+      
       var customTool = new CustomTool().addTo(map);
 </textarea>
         <textarea name="css">html,

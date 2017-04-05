@@ -1,8 +1,10 @@
 <!DOCTYPE html>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css">
-  <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/maptalks/dist/maptalks.css"> -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/maptalks/dist/maptalks.js"></script> -->
+  <link rel="stylesheet" href="http://192.168.31.153:20000/maptalks.css">
+  <script type="text/javascript" src="http://192.168.31.153:20000/maptalks.js"></script>
   <title>图形 - 图形连接线</title>
   <body>
     
@@ -14,13 +16,13 @@
         center: c,
         zoom: 14,
         baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+          urlTemplate: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
           subdomains: ['a','b','c','d','e']
         })
       });
-
+      
       var layer = new maptalks.VectorLayer('vector').addTo(map);
-
+      
       var src = new maptalks.Marker(
         c.add(-0.0154, 0.005),
         {
@@ -35,7 +37,7 @@
           }
         }
       );
-
+      
       var dst = new maptalks.Marker(
         c.add(0.0109, 0.005),
         {
@@ -59,7 +61,7 @@
           ]
         }
       );
-
+      
       var line = new maptalks.ConnectorLine(src, dst, {
         showOn : 'always', //'moving', 'click', 'mouseover', 'always'
         arrowStyle : 'classic',
@@ -69,9 +71,9 @@
           lineWidth: 2
         }
       });
-
+      
       layer.addGeometry(src, dst, line);
-
+      
       // Arc Connector Line
       var src2 = src.copy().translate(0, -0.01);
       var dst2 = dst.copy().translate(0, -0.01);
@@ -85,7 +87,7 @@
           lineWidth: 2
         }
       });
-
+      
       layer.addGeometry(src2, dst2, line2);
 
     </script>
