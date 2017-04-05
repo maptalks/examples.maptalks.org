@@ -18,7 +18,7 @@
       }
     </style>
 </head>
-<body>
+<body onload="highlight()">
     <article id="example">
       <div id="map">
               <h3 class="main-title">D3 UI Marker</h3>
@@ -37,10 +37,8 @@
             <code class="html xml">&lt;!DOCTYPE html&gt;
   &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
   &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;index.css&quot;&gt;
-  &lt;!-- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt; --&gt;
-  &lt;!-- &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt; --&gt;
-  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;http://192.168.31.153:20000/maptalks.css&quot;&gt;
-  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;http://192.168.31.153:20000/maptalks.js&quot;&gt;&lt;/script&gt;
+  &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.css&quot;&gt;
+  &lt;script type&#x3D;&quot;text/javascript&quot; src&#x3D;&quot;https://unpkg.com/maptalks/dist/maptalks.js&quot;&gt;&lt;/script&gt;
   &lt;title&gt;UI组件 - D3 UI Marker&lt;/title&gt;
   &lt;body&gt;
     
@@ -366,9 +364,11 @@ body {
   </div>
 <script type="text/javascript" src="../../../../highlight.min.js"></script>
 <script>
-  var codes = document.getElementsByTagName('code');
-  for (var i = 0; i < codes.length; i++) {
-    hljs.highlightBlock(codes[i]);
+  function highlight() {
+    var codes = document.getElementsByTagName('code');
+    for (var i = 0; i < codes.length; i++) {
+      hljs.highlightBlock(codes[i]);
+    }
   }
 
   function edit() {
