@@ -17,8 +17,9 @@
         overflow-y:auto;
       }
     </style>
+    <script type="text/javascript" src="../../../../highlight.min.js"></script>
 </head>
-<body onload="highlight()">
+<body>
     <article id="example">
       <div id="map">
               <h3 class="main-title">图形连接线</h3>
@@ -260,7 +261,6 @@ body {
         <input type="text" name="wrap" value="l">
     </form>
   </div>
-<script type="text/javascript" src="../../../../highlight.min.js"></script>
 <script>
   function highlight() {
     var codes = document.getElementsByTagName('code');
@@ -272,6 +272,8 @@ body {
   function edit() {
     document.getElementById('editor').submit();
   }
+
+  highlight();
 </script>
 </body>
 </html>
