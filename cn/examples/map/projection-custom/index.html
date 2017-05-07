@@ -48,13 +48,13 @@
     &lt;script src&#x3D;&quot;https://d3js.org/topojson.v2.min.js&quot;&gt;&lt;/script&gt;
 
     &lt;script&gt;
-      
+
       //Versor Dragging projection from D3
       //https://bl.ocks.org/mbostock/7ea1dde508cec6d2d95306f92642bc42
       var projection &#x3D;  d3.geoOrthographic()
                           .scale(148)
                           .precision(.1);
-      
+
       //convert to a maptalks projection object
       var proj &#x3D; {
         project : function (c) {
@@ -69,7 +69,7 @@
           return new maptalks.Coordinate(c);
         }
       };
-      
+
       var min &#x3D; proj.project(new maptalks.Coordinate(-180, -90)),
         max &#x3D; proj.project(new maptalks.Coordinate(180, 90)),
         fullExtent &#x3D; {
@@ -78,7 +78,7 @@
           &#x27;right&#x27; : max.x,
           &#x27;bottom&#x27; : min.y
         };
-      
+
       d3.json(&#x27;world-50m.json&#x27;, function (error, world) {
         if (error) throw error;
         //initialize map with a customized projection
@@ -86,7 +86,7 @@
           center:     [0, 0],
           centerCross : true,
           zoom:  3,
-          view:{
+          spatialReference:{
             &#x27;projection&#x27;: proj,
             &#x27;resolutions&#x27;: (function () {
               var resolutions &#x3D; [];
@@ -153,13 +153,13 @@ body {
     <script src="https://d3js.org/topojson.v2.min.js"></script>
 
         </textarea>
-        <textarea name="js">      
+        <textarea name="js">
       //Versor Dragging projection from D3
       //https://bl.ocks.org/mbostock/7ea1dde508cec6d2d95306f92642bc42
       var projection =  d3.geoOrthographic()
                           .scale(148)
                           .precision(.1);
-      
+
       //convert to a maptalks projection object
       var proj = {
         project : function (c) {
@@ -174,7 +174,7 @@ body {
           return new maptalks.Coordinate(c);
         }
       };
-      
+
       var min = proj.project(new maptalks.Coordinate(-180, -90)),
         max = proj.project(new maptalks.Coordinate(180, 90)),
         fullExtent = {
@@ -183,7 +183,7 @@ body {
           'right' : max.x,
           'bottom' : min.y
         };
-      
+
       d3.json('world-50m.json', function (error, world) {
         if (error) throw error;
         //initialize map with a customized projection
@@ -191,7 +191,7 @@ body {
           center:     [0, 0],
           centerCross : true,
           zoom:  3,
-          view:{
+          spatialReference:{
             'projection': proj,
             'resolutions': (function () {
               var resolutions = [];

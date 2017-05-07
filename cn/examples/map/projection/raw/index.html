@@ -15,9 +15,9 @@
     <div id="map-4326" class="left"></div>
     <div id="map-identity" class="right"></div>
     <script>
-      
+
       var center = [105.08052356963802, 36.04231948670001];
-      
+
       var map3857 = new maptalks.Map('map-3857', {
         center: center,
         zoom: 4,
@@ -29,13 +29,13 @@
           content : '&copy; <a href="http://www.osm.org" target="_blank">OpenStreetMap</a> contributors'
         }
       });
-      
+
       var mapBD = new maptalks.Map('map-bd09', {
         center: center,
         zoom: 4,
         minZoom:1,
         maxZoom:19,
-        view:{
+        spatialReference:{
           projection : 'baidu'
         },
         baseLayer: new maptalks.TileLayer('base', {
@@ -46,13 +46,13 @@
           content : '&copy; <a target="_blank" href="http://map.baidu.com">Baidu</a>'
         }
       });
-      
+
       var map4326 = new maptalks.Map('map-4326', {
         center: center,
         zoom: 4,
         minZoom:1,
         maxZoom:18,
-        view:{
+        spatialReference:{
           projection:'EPSG:4326'
         },
         baseLayer: new maptalks.TileLayer('base', {

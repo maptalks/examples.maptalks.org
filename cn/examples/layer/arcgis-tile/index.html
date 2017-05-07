@@ -47,19 +47,19 @@
 
     &lt;script&gt;
       var arcUrl &#x3D; &#x27;https://services.arcgisonline.com/arcgis/rest/services/ESRI_Imagery_World_2D/MapServer&#x27;;
-      
-      maptalks.View.loadArcgis(arcUrl + &#x27;?f&#x3D;pjson&#x27;, function (err, conf) {
+
+      maptalks.SpatialReference.loadArcgis(arcUrl + &#x27;?f&#x3D;pjson&#x27;, function (err, conf) {
         if (err) {
           throw new Error(err);
         }
-        var view &#x3D; conf.view;
-        view.projection &#x3D; &#x27;EPSG:4326&#x27;;
-      
+        var ref &#x3D; conf.spatialReference;
+        ref.projection &#x3D; &#x27;EPSG:4326&#x27;;
+
         var map &#x3D; new maptalks.Map(&#x27;map&#x27;, {
           center: [121, 0],
           zoom: 0,
           maxZoom : 16,
-          view : view,
+          spatialReference : ref,
           baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
             &#x27;tileSystem&#x27; : conf.tileSystem,
             &#x27;tileSize&#x27; : conf.tileSize, // 512, 512
@@ -70,7 +70,7 @@
           }
         });
       });
-      
+
 
     &lt;/script&gt;
   &lt;/body&gt;
@@ -110,19 +110,19 @@ body {
 
         </textarea>
         <textarea name="js">      var arcUrl = 'https://services.arcgisonline.com/arcgis/rest/services/ESRI_Imagery_World_2D/MapServer';
-      
-      maptalks.View.loadArcgis(arcUrl + '?f=pjson', function (err, conf) {
+
+      maptalks.SpatialReference.loadArcgis(arcUrl + '?f=pjson', function (err, conf) {
         if (err) {
           throw new Error(err);
         }
-        var view = conf.view;
-        view.projection = 'EPSG:4326';
-      
+        var ref = conf.spatialReference;
+        ref.projection = 'EPSG:4326';
+
         var map = new maptalks.Map('map', {
           center: [121, 0],
           zoom: 0,
           maxZoom : 16,
-          view : view,
+          spatialReference : ref,
           baseLayer: new maptalks.TileLayer('base', {
             'tileSystem' : conf.tileSystem,
             'tileSize' : conf.tileSize, // 512, 512
@@ -133,7 +133,7 @@ body {
           }
         });
       });
-      
+
 </textarea>
         <textarea name="css">
 html,

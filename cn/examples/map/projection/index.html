@@ -52,9 +52,9 @@
     &lt;div id&#x3D;&quot;map-4326&quot; class&#x3D;&quot;left&quot;&gt;&lt;/div&gt;
     &lt;div id&#x3D;&quot;map-identity&quot; class&#x3D;&quot;right&quot;&gt;&lt;/div&gt;
     &lt;script&gt;
-      
+
       var center &#x3D; [105.08052356963802, 36.04231948670001];
-      
+
       var map3857 &#x3D; new maptalks.Map(&#x27;map-3857&#x27;, {
         center: center,
         zoom: 4,
@@ -66,13 +66,13 @@
           content : &#x27;&amp;copy; &lt;a href&#x3D;&quot;http://www.osm.org&quot; target&#x3D;&quot;_blank&quot;&gt;OpenStreetMap&lt;/a&gt; contributors&#x27;
         }
       });
-      
+
       var mapBD &#x3D; new maptalks.Map(&#x27;map-bd09&#x27;, {
         center: center,
         zoom: 4,
         minZoom:1,
         maxZoom:19,
-        view:{
+        spatialReference:{
           projection : &#x27;baidu&#x27;
         },
         baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
@@ -83,13 +83,13 @@
           content : &#x27;&amp;copy; &lt;a target&#x3D;&quot;_blank&quot; href&#x3D;&quot;http://map.baidu.com&quot;&gt;Baidu&lt;/a&gt;&#x27;
         }
       });
-      
+
       var map4326 &#x3D; new maptalks.Map(&#x27;map-4326&#x27;, {
         center: center,
         zoom: 4,
         minZoom:1,
         maxZoom:18,
-        view:{
+        spatialReference:{
           projection:&#x27;EPSG:4326&#x27;
         },
         baseLayer: new maptalks.TileLayer(&#x27;base&#x27;, {
@@ -184,9 +184,9 @@ body {
     <div id="map-4326" class="left"></div>
     <div id="map-identity" class="right"></div>
         </textarea>
-        <textarea name="js">      
+        <textarea name="js">
       var center = [105.08052356963802, 36.04231948670001];
-      
+
       var map3857 = new maptalks.Map('map-3857', {
         center: center,
         zoom: 4,
@@ -198,13 +198,13 @@ body {
           content : '&copy; <a href="http://www.osm.org" target="_blank">OpenStreetMap</a> contributors'
         }
       });
-      
+
       var mapBD = new maptalks.Map('map-bd09', {
         center: center,
         zoom: 4,
         minZoom:1,
         maxZoom:19,
-        view:{
+        spatialReference:{
           projection : 'baidu'
         },
         baseLayer: new maptalks.TileLayer('base', {
@@ -215,13 +215,13 @@ body {
           content : '&copy; <a target="_blank" href="http://map.baidu.com">Baidu</a>'
         }
       });
-      
+
       var map4326 = new maptalks.Map('map-4326', {
         center: center,
         zoom: 4,
         minZoom:1,
         maxZoom:18,
-        view:{
+        spatialReference:{
           projection:'EPSG:4326'
         },
         baseLayer: new maptalks.TileLayer('base', {
